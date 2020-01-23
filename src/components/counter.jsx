@@ -1,15 +1,24 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+  state = {
+    count: 0
+  };
+
   render() {
     return (
-      // Every JSX needs to be wrapped in some container e.g. <div></div>
-      // but to add a div that does nothing, we can ignore it by using React.Fragment
-      <React.Fragment>
-        <h1>Hello World</h1>
+      <div>
+        <span>{this.formatCount()}</span>
         <button>Increment</button>
-      </React.Fragment>
+      </div>
     );
+  }
+
+  formatCount() {
+    // Object Destructuring
+    // Using `count` property from `this.state` object and setting it to a const.
+    const { count } = this.state;
+    return count === 0 ? "Zero" : count;
   }
 }
 
