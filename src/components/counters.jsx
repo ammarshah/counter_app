@@ -13,7 +13,7 @@ class Counters extends Component {
 
   handleDelete = counterId => {
     const counters = this.state.counters.filter(c => c.id !== counterId);
-    this.setState({ counters });
+    this.setState({ counters: counters }); // Because the key and value name is the same here so we can also just use { counters }
   };
 
   render() {
@@ -23,8 +23,7 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
-            value={counter.value}
-            id={counter.id}
+            counter={counter}
           />
         ))}
       </div>
