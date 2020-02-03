@@ -9,7 +9,8 @@ class Counter extends Component {
   // To solve the problem of `this` referencing to a different object we created a constructor earlier.
   // Another solution would be to convert the function into an arrow function and that will solve the problem.
   // Because arrow functions don't re-bind the `this` keyword, they are inherited.
-  handleIncrement = () => {
+  handleIncrement = product => {
+    console.log(product);
     this.setState({ count: this.state.count + 1 });
   };
 
@@ -18,16 +19,11 @@ class Counter extends Component {
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement(product)} // when ever you need to pass the argument to event handler, use inline function.
           className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
-        <ul>
-          {this.state.tags.map(tag => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
       </div>
     );
   }
