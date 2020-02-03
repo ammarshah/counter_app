@@ -6,14 +6,12 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"]
   };
 
-  constructor() {
-    super();
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
-
-  handleIncrement() {
+  // To solve the problem of `this` referencing to a different object we created a constructor earlier.
+  // Another solution would be to convert the function into an arrow function and that will solve the problem.
+  // Because arrow functions don't re-bind the `this` keyword, they are inherited.
+  handleIncrement = () => {
     console.log("Increment clicked", this);
-  }
+  };
 
   render() {
     return (
