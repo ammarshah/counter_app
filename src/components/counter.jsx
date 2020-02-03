@@ -9,6 +9,15 @@ class Counter extends Component {
     }
   }
 
+  componentWillUnmount() {
+    // This is called before removing the component from the DOM
+    // and this gives us an opportunity to do any kind of cleanup.
+    // So if we have setup timers or listeners we can clean those up
+    // before a component is removed from the DOM, otherwise, we'll
+    // end up with memory leaks.
+    console.log("Counter - Unmount");
+  }
+
   render() {
     console.log("Counter - Rendered");
 
