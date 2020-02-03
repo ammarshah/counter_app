@@ -4,13 +4,13 @@ import React from "react";
 // It does not have a `this` keyword so we need to pass the `props` as an argument
 // React will pass the `props` on the runtime
 
-const NavBar = props => {
+const NavBar = ({ totalCounters }) => {
   return (
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#">
         Navbar{" "}
         <span className="badge badge-pill badge-secondary">
-          {props.totalCounters}
+          {totalCounters}
         </span>
       </a>
     </nav>
