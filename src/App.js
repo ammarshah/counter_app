@@ -19,6 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // This is right place to make AJAX call to get additional data from the server
     console.log("App - Mounted");
   }
 
