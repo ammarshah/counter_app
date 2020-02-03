@@ -31,13 +31,15 @@ class App extends Component {
 
   handleDelete = counterId => {
     const counters = this.state.counters.filter(c => c.id !== counterId);
-    this.setState({ counters: counters }); // Because the key and value name is the same here so we can also just use { counters }
+    this.setState({ counters: counters }); // Because the key and value name is the same here so we can also use just { counters }
   };
 
   render() {
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar
+          totalCounters={this.state.counters.filter(c => c.value > 0).length}
+        />
         <main className="container">
           <Counters
             counters={this.state.counters}
