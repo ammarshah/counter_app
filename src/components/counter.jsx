@@ -10,7 +10,7 @@ class Counter extends Component {
   // Another solution would be to convert the function into an arrow function and that will solve the problem.
   // Because arrow functions don't re-bind the `this` keyword, they are inherited.
   handleIncrement = () => {
-    console.log("Increment clicked", this);
+    this.setState({ count: this.state.count + 1 });
   };
 
   render() {
